@@ -49,7 +49,7 @@ const Character = struct {
 
     // I need to use the '?' here to allow for a null value. But
     // I don't explain it until later. Please don't tell anyone.
-    mentor: ?*Character = null,
+    mentor: ?*Character = null, // optional pointer value
 };
 
 pub fn main() void {
@@ -68,7 +68,7 @@ pub fn main() void {
 
     // FIX ME!
     // Please pass Glorp to printCharacter():
-    printCharacter(???);
+    printCharacter(&glorp);
 }
 
 // Note how this function's "c" parameter is a pointer to a Character struct.
@@ -76,7 +76,7 @@ fn printCharacter(c: *Character) void {
     // Here's something you haven't seen before: when switching an enum, you
     // don't have to write the full enum name. Zig understands that ".wizard"
     // means "Class.wizard" when we switch on a Class enum value:
-    const class_name = switch (c.class) {
+    const class_name = switch (c.class) { // implicitly dereferences then accesses the "class" field's value
         .wizard => "Wizard",
         .thief => "Thief",
         .bard => "Bard",

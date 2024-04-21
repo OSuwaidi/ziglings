@@ -27,7 +27,17 @@ const Elephant = struct {
     // Your Elephant trunk methods go here!
     // ---------------------------------------------------
 
-    ???
+    // Since we're not going to modify the struct's fields (only read them), no need to pass struct by reference in the below methods, can pass by value (copy) -> "self: Elephant".
+    // But this will create a copy of the struct each time it's called! So, if the struct was complex (big in size), this approach will be inefficient.
+    // Hence, pass by (mutable) reference:
+    pub fn hasTrunk(self: *Elephant) bool {
+        return (self.trunk != null);
+    }
+
+    // pass by (immutable) reference:
+    pub fn getTrunk(self: *const Elephant) *Elephant { // we can also coerce the argument as a pointer to "const" (immutable) self since we don't need to modify it
+        return self.trunk.?;
+    }
 
     // ---------------------------------------------------
 
@@ -70,22 +80,16 @@ fn visitElephants(first_elephant: *Elephant) void {
         e.visit();
 
         // This gets the next elephant or stops.
-        if (e.hasTail()) {
-            e = e.getTail();
-        } else {
-            break;
-        }
+        e = if (e.hasTail()) e.getTail() else break;
     }
+
+    // "e" here is now "elephantC"
 
     // We follow the trunks!
     while (true) {
         e.print();
 
         // This gets the previous elephant or stops.
-        if (e.hasTrunk()) {
-            e = e.getTrunk();
-        } else {
-            break;
-        }
+        e = if (e.hasTrunk()) e.getTrunk() else break;
     }
 }
