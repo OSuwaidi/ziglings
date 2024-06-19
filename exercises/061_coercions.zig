@@ -2,7 +2,7 @@
 // It'll only take us a moment to learn the Zig type coercion
 // rules because they're quite logical.
 //
-// 1. Types can always be made _more_ restrictive.
+// 1. Types can always be made _more_ restrictive, never less!
 //
 //    var foo: u8 = 5;
 //    var p1: *u8 = &foo;
@@ -44,7 +44,7 @@
 //
 // 7. 'undefined' coerces to any type (or it wouldn't work!)
 //
-// 8. Compile-time numbers coerce to compatible types.
+// 8. Compile-time numbers coerce to compatible types (refers to numbers that are "abrupt" and evaluated during compilation).
 //
 //    Just about every single exercise program has had an example
 //    of this, but a full and proper explanation is coming your
@@ -67,7 +67,7 @@ const print = @import("std").debug.print;
 pub fn main() void {
     var letter: u8 = 'A';
 
-    const my_letter:   ???   = &letter;
+    const my_letter: ?*[1]u8 = &letter;
     //               ^^^^^^^
     //           Your type here.
     // Must coerce from &letter (which is a *u8).

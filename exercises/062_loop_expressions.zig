@@ -3,7 +3,7 @@
 //
 //     var foo: u8 = if (true) 5 else 0;
 //
-// Zig also lets you use for and while loops as expressions.
+// Zig also lets you use "for" and "while" loops as expressions.
 //
 // Like 'return' for functions, you can return a value from a
 // loop block with break:
@@ -14,7 +14,7 @@
 // never reached? We need a default expression. Thankfully, Zig
 // loops also have 'else' clauses! As you might have guessed, the
 // 'else' clause is evaluated when: 1) a 'while' condition becomes
-// false or 2) a 'for' loop runs out of items.
+// false or 2) a 'for' loop runs out of items without breaking.
 //
 //     const two: u8 = while (true) break 2 else 0;         // 2
 //     const three: u8 = for ([1]u8{1}) |f| break 3 else 0; // 3
@@ -47,7 +47,7 @@ pub fn main() void {
     // return it from the for loop.
     const current_lang: ?[]const u8 = for (langs) |lang| {
         if (lang.len == 3) break lang;
-    };
+    } else null;
 
     if (current_lang) |cl| {
         print("Current language: {s}\n", .{cl});

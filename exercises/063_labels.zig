@@ -7,7 +7,7 @@
 //     my_label: { ... }
 //
 // Once you give a block a label, you can use 'break' to exit
-// from that block.
+// from that specific block.
 //
 //     outer_block: {           // outer block
 //         while (true) {       // inner block
@@ -121,7 +121,7 @@ pub fn main() void {
 
             // We did not find this required ingredient, so we
             // can't make this Food. Continue the outer loop.
-            if (!found) continue :food_loop;
+            if (!found) continue :food_loop; // could we also use "break" here to break the inner loop?
         }
 
         // If we get this far, the required ingredients were all
