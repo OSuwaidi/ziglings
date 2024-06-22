@@ -46,7 +46,7 @@ Verify the installation and build number of `zig` like so:
 
 ```
 $ zig version
-0.13.0-dev.xxxx+xxxxxxxxx
+0.14.0-dev.xxxx+xxxxxxxxx
 ```
 
 Clone this repository with Git:
@@ -74,8 +74,8 @@ the appropriate tag.
 The Zig language is under very active development. In order to be
 current, Ziglings tracks **development** builds of the Zig
 compiler rather than versioned **release** builds. The last
-stable release was `0.12.0`, but Ziglings needs a dev build with
-pre-release version "0.13.0" and a build number at least as high
+stable release was `0.13.0`, but Ziglings needs a dev build with
+pre-release version "0.14.0" and a build number at least as high
 as that shown in the example version check above.
 
 It is likely that you'll download a build which is _greater_ than
@@ -88,7 +88,9 @@ that if you update one, you may need to also update the other.
 
 ### Version Changes
 
-Version-0.12.0-dev.3518
+Version-0.14.0-dev.42
+* *2024-06-17* zig 0.14.0-dev.42 - changes in `std.mem.split and tokenize` - see [#15579](https://github.com/ziglang/zig/pull/15579)
+* *2024-05-29* zig 0.13.0-dev.339 - rework std.Progress - see [#20059](https://github.com/ziglang/zig/pull/20059)
 * *2024-03-21* zig 0.12.0-dev.3518 - change to @fieldParentPtr - see [#19470](https://github.com/ziglang/zig/pull/19470)
 * *2024-03-21* zig 0.12.0-dev.3397 - rename std.os to std.posix - see [#5019](https://github.com/ziglang/zig/issues/5019)
 * *2024-03-14* zig 0.12.0-dev.3302 - changes in `std.fmt` - floating-point formatting implementation - see [#19229](https://github.com/ziglang/zig/pull/19229)

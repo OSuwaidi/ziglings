@@ -1,6 +1,6 @@
 //
-// Now that we are familiar with the principles of multi threading, we
-// boldly venture into a practical example from mathematics.
+// Now that we are familiar with the principles of multi-threading,
+// let's boldly venture into a practical example from mathematics.
 // We will determine the circle number PI with sufficient accuracy.
 //
 // There are different methods for this, and some of them are several
@@ -104,4 +104,4 @@ fn thread_pi(pi: *f64, begin: u64, end: u64) !void {
 // to such an extent that seconds become minutes during execution.
 //
 // And you should remove the formatting restriction in "print",
-// otherwise you will not be able to see the additional diggits.
+// otherwise you will not be able to see the additional digits.
