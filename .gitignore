@@ -5,3 +5,4 @@ zig-cache/
 /patches/healed/
 /output/
 .DS_Store
+.idea

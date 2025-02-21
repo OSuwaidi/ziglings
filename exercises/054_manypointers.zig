@@ -3,7 +3,7 @@
 //
 //     var foo: [4]u8 = [4]u8{ 1, 2, 3, 4 };
 //     var foo_slice: []u8 = foo[0..];
-//     var foo_ptr: [*]u8 = &foo; --> a regular pointer here would require that the size of the array it points to be fixed: "*[4]u8"!
+//     var foo_ptr: [*]u8 = &foo; --> a regular pointer here would point to an array of fixed size: "*[4]u8"!
 //     var foo_slice_from_ptr: []u8 = foo_ptr[0..4];
 //
 // The difference between "foo_slice" and "foo_ptr" is that the slice has
