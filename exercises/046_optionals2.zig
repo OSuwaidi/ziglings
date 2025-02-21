@@ -29,16 +29,16 @@ const Elephant = struct {
 pub fn main() void {
     var elephantA = Elephant{ .letter = 'A' };
     var elephantB = Elephant{ .letter = 'B' };
-    var elephantC = Elephant{ .letter = 'C' };
+    var elephantC: ?Elephant = Elephant{ .letter = 'C' }; // if you make this variable an "optional elephant", you must unpack (access) it via ".?"
 
     // Link the elephants so that each tail "points" to the next.
     linkElephants(&elephantA, &elephantB);
-    linkElephants(&elephantB, &elephantC);
+    linkElephants(&elephantB, &elephantC.?); // must unpack to change from "pointer to optional elephant struct" to: "pointer to elephant struct"
 
     // `linkElephants` will stop the program if you try and link an
     // elephant that doesn't exist! Uncomment and see what happens.
     // const missingElephant: ?*Elephant = null;
-    // linkElephants(&elephantC, missingElephant);
+    // linkElephants(&elephantC, missingElephant); // any time you attempt to use null value in Zig, it will panic!
 
     visitElephants(&elephantA);
 
