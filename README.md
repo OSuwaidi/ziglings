@@ -10,11 +10,10 @@ Those broken programs need your help! (You'll also save the
 planet from evil aliens and help some friendly elephants stick
 together, which is very sweet of you.)
 
-This project was directly inspired by the brilliant and fun
-[rustlings](https://github.com/rust-lang/rustlings)
-project for the [Rust](https://www.rust-lang.org/) language.
-Indirect inspiration comes from [Ruby Koans](http://rubykoans.com/)
-and the Little LISPer/Little Schemer series of books.
+This project was initiated by [Dave Gauer](https://ratfactor.com/) and is directly inspired
+by the brilliant and fun [rustlings](https://github.com/rust-lang/rustlings) project.
+Indirect inspiration comes from [Ruby Koans](http://rubykoans.com/) and the Little LISPer/Little
+Schemer series of books.
 
 ## Intended Audience
 
@@ -52,14 +51,14 @@ $ zig version
 Clone this repository with Git:
 
 ```
-$ git clone https://ziglings.org
-$ cd ziglings.org
+git clone https://codeberg.org/ziglings/exercises.git ziglings
+cd ziglings
 ```
 
 Then run `zig build` and follow the instructions to begin!
 
 ```
-$ zig build
+zig build
 ```
 
 Note: The output of Ziglings is the unaltered output from the Zig
@@ -69,7 +68,7 @@ reading these.
 ## A Note About Versions
 
 **Hint:** To check out Ziglings for a stable release of Zig, you can use
-the appropriate tag. 
+the appropriate tag.
 
 The Zig language is under very active development. In order to be
 current, Ziglings tracks **development** builds of the Zig
@@ -88,7 +87,11 @@ that if you update one, you may need to also update the other.
 
 ### Version Changes
 
-Version-0.14.0-dev.42
+Version-0.14.0-dev.1573
+* *2024-09-16* zig 0.14.0-dev.1573 - introduction of labeled switch, see [#21257](https://github.com/ziglang/zig/pull/21257)
+* *2024-09-02* zig 0.14.0-dev.1409 - several changes in std.builtin, see [#21225](https://github.com/ziglang/zig/pull/21225)
+* *2024-08-04* zig 0.14.0-dev.1224 - several changes in build system, see [#21115](https://github.com/ziglang/zig/pull/21115)
+* *2024-08-04* zig 0.14.0-dev.839 - several changes in build system, see [#20580](https://github.com/ziglang/zig/pull/20580), [#20600](https://github.com/ziglang/zig/issues/20600)
 * *2024-06-17* zig 0.14.0-dev.42 - changes in `std.mem.split and tokenize` - see [#15579](https://github.com/ziglang/zig/pull/15579)
 * *2024-05-29* zig 0.13.0-dev.339 - rework std.Progress - see [#20059](https://github.com/ziglang/zig/pull/20059)
 * *2024-03-21* zig 0.12.0-dev.3518 - change to @fieldParentPtr - see [#19470](https://github.com/ziglang/zig/pull/19470)
@@ -127,6 +130,18 @@ It can be handy to check just a single exercise:
 zig build -Dn=19
 ```
 
+Or run all exercises, starting from a specific one:
+
+```
+zig build -Ds=27
+```
+
+Or let Ziglings pick an exercise for you:
+
+```
+zig build -Drandom
+```
+
 You can also run without checking for correctness:
 
 ```
@@ -156,6 +171,11 @@ zig build -Dn=19 -l
   uninstall        Uninstall 019_functions2.zig from prefix path
   test             Run 019_functions2.zig without checking output
   ...
+```
+
+To reset the progress (have it run all the exercises that have already been completed):
+```
+zig build -Dreset
 ```
 
 ## What's Covered
@@ -214,6 +234,8 @@ Zig Core Language
 * [X] Bit manipulation
 * [X] Working with C
 * [X] Threading
+* [x] Labeled switch
+* [x] Vector operations (SIMD)
 
 Zig Standard Library
 
